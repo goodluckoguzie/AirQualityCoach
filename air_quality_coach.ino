@@ -1,5 +1,5 @@
 /*
-  Air Quality Coach — "Open the Window"
+  Air Quality Coach: Open the Window
   ESP32 + DHT + traffic-light LEDs + SoftAP web page
 
   Phones connect to Wi-Fi: AirCoach
@@ -71,7 +71,7 @@ void updateFromSensor() {
   } else {
     level = 2;
     statusText = "OPEN THE WINDOW";
-    advice = "Ventilate now — humidity is high";
+    advice = "Ventilate now. Humidity is high";
   }
 
   setLights(level);

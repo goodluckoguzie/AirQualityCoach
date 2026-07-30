@@ -1,4 +1,4 @@
-# Air Quality Coach — Step-by-step (KY-015 DHT11)
+# Air Quality Coach: Step-by-step (KY-015 DHT11)
 
 You have: **ESP32** + **KY-015 (DHT11)** + **3 LEDs** + **resistors** + **Arduino IDE**
 
@@ -6,7 +6,7 @@ Wiring diagram image: `ky015-wiring-diagram.png` (same folder)
 
 ---
 
-## Part A — Know your KY-015 pins
+## Part A: Know your KY-015 pins
 
 The **KY-015** is a small board with a blue DHT11 can and **3 pins**.
 
@@ -29,11 +29,11 @@ With the **sensor facing you** and pins at the bottom, left → right is usually
      DATA   VCC   GND
 ```
 
-If your board prints `S` / middle / `-`, use that. Do **not** guess VCC/GND — wrong power can damage the module.
+If your board prints `S` / middle / `-`, use that. Do **not** guess VCC/GND. Wrong power can damage the module.
 
 ---
 
-## Part B — Wireframe (full circuit)
+## Part B: Wireframe (full circuit)
 
 ```
                          USB to laptop
@@ -72,31 +72,31 @@ Use **220Ω** (red-red-brown) or **330Ω**. Do not skip the resistor.
 
 ---
 
-## Part C — Build order (do this in order)
+## Part C: Build order (do this in order)
 
-### Step 1 — Unplug power
+### Step 1: Unplug power
 Remove USB from the ESP32 before wiring. Safer.
 
-### Step 2 — Put ESP32 on the breadboard
+### Step 2: Put ESP32 on the breadboard
 Seat the ESP32 so both rows of pins have free holes beside them (or use male-female jumpers to a separate breadboard).
 
-### Step 3 — Wire KY-015
+### Step 3: Wire KY-015
 1. KY-015 **+** → ESP32 **3V3** (red jumper)
 2. KY-015 **-** → ESP32 **GND** (black jumper)
 3. KY-015 **S** → ESP32 **GPIO4** / pin labeled **D4** on many Freenove boards (yellow jumper)
 
-### Step 4 — Wire green LED
+### Step 4: Wire green LED
 1. Resistor from **GPIO25** to breadboard row
 2. From that row to **long leg** of green LED
 3. **Short leg** of green LED to **GND** rail
 
-### Step 5 — Wire yellow LED
+### Step 5: Wire yellow LED
 Same pattern: **GPIO26** → resistor → yellow LED long leg → short leg → **GND**
 
-### Step 6 — Wire red LED
+### Step 6: Wire red LED
 Same pattern: **GPIO27** → resistor → red LED long leg → short leg → **GND**
 
-### Step 7 — Double-check
+### Step 7: Double-check
 - [ ] KY-015 + is on **3V3**, not 5V (safer for first test)
 - [ ] KY-015 S is on **GPIO4**
 - [ ] All LED short legs on **GND**
@@ -105,21 +105,21 @@ Same pattern: **GPIO27** → resistor → red LED long leg → short leg → **G
 
 ---
 
-## Part D — Arduino IDE (software)
+## Part D: Arduino IDE (software)
 
-### Step 8 — Board + port
+### Step 8: Board + port
 1. Plug USB into ESP32 and laptop
 2. Arduino IDE → **Tools → Board → ESP32 Arduino → ESP32 Dev Module**
 3. **Tools → Port** → pick the new serial port  
    - Linux often `/dev/ttyUSB0` or `/dev/ttyACM0`
 
-### Step 9 — Install DHT library
+### Step 9: Install DHT library
 1. **Sketch → Include Library → Manage Libraries**
 2. Search **DHT sensor library**
 3. Install **DHT sensor library** by **Adafruit**
 4. If asked, also install **Adafruit Unified Sensor**
 
-### Step 10 — Open the sketch
+### Step 10: Open the sketch
 Open:
 
 `Tutorial/air-quality-coach/air_quality_coach.ino`
@@ -131,12 +131,12 @@ Confirm these lines (already set for your sensor):
 #define DHTTYPE  DHT11
 ```
 
-### Step 11 — Upload
+### Step 11: Upload
 1. Click **Upload**
 2. If it fails stuck on “Connecting…”, hold the ESP32 **BOOT** button until upload starts, then release
 3. Wait for **Done uploading**
 
-### Step 12 — Serial Monitor
+### Step 12: Serial Monitor
 1. **Tools → Serial Monitor**
 2. Set baud to **115200**
 3. You should see something like:
@@ -153,22 +153,22 @@ T=23.0C  H=48.0%  Air OK
 
 ---
 
-## Part E — Phone test
+## Part E: Phone test
 
-### Step 13 — Connect phone Wi‑Fi
+### Step 13: Connect phone Wi‑Fi
 - Network: **AirCoach**
 - Password: **openwindow**
 
-(Your phone may say “No internet” — that is normal. Stay connected.)
+(Your phone may say “No internet”. That is normal. Stay connected.)
 
-### Step 14 — Open the page
+### Step 14: Open the page
 In the phone browser go to:
 
 **http://192.168.4.1**
 
 You should see humidity, temperature, and a status badge.
 
-### Step 15 — Make it go red (demo trick)
+### Step 15: Make it go red (demo trick)
 Hold the KY-015 gently and **breathe warm moist air** onto the blue DHT11 can for a few seconds.
 
 Expected:

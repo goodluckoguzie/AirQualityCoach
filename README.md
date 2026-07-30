@@ -1,4 +1,4 @@
-# Air Quality Coach — “Open the Window”
+# Air Quality Coach: Open the Window
 
 ESP32 + **KY-015 DHT11** + traffic-light LEDs + SoftAP phone page.
 
@@ -50,7 +50,7 @@ Full walkthrough: [`STEP_BY_STEP_KY015.md`](STEP_BY_STEP_KY015.md)
    - **&lt; 55%** → green / Air OK
    - **55–70%** → yellow / Getting stuffy
    - **≥ 70%** → red / OPEN THE WINDOW
-3. ESP32 SoftAP serves a live HTML page (and `/json`) — no home router required
+3. ESP32 SoftAP serves a live HTML page (and `/json`). No home router required
 
 ---
 
@@ -76,4 +76,4 @@ Full walkthrough: [`STEP_BY_STEP_KY015.md`](STEP_BY_STEP_KY015.md)
 
 ## License
 
-MIT — free to use and adapt for demos and teaching.
+MIT. Free to use and adapt for demos and teaching.
