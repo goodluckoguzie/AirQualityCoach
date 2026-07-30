@@ -155,7 +155,7 @@ T=23.0C  H=48.0%  Air OK
 
 ## Part E: Phone test
 
-### Step 13: Connect phone Wi‑Fi
+### Step 13: Connect phone Wi-Fi
 - Network: **AirCoach**
 - Password: **openwindow**
 
@@ -183,7 +183,7 @@ Expected:
 | State | Humidity | LED | Phone text |
 |-------|----------|-----|------------|
 | OK | &lt; 55% | Green | Air OK |
-| Stuffy | 55–70% | Yellow | Getting stuffy |
+| Stuffy | 55-70% | Yellow | Getting stuffy |
 | Alert | ≥ 70% | Red | OPEN THE WINDOW |
 
 ---

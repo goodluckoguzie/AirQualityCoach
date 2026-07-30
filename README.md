@@ -35,7 +35,7 @@ LED: long leg → resistor side; short leg → GND.
 3. Install **DHT sensor library** (Adafruit) + **Adafruit Unified Sensor**
 4. Open `air_quality_coach.ino` → Upload
 5. Serial Monitor at **115200** → should show `SoftAP started`
-6. Phone Wi‑Fi: **AirCoach** / **openwindow**
+6. Phone Wi-Fi: **AirCoach** / **openwindow**
 7. Browser: [http://192.168.4.1](http://192.168.4.1)
 8. Breathe on the DHT11 → yellow/red + “OPEN THE WINDOW”
 
@@ -48,7 +48,7 @@ Full walkthrough: [`STEP_BY_STEP_KY015.md`](STEP_BY_STEP_KY015.md)
 1. DHT11 reads temperature + humidity every 2 seconds
 2. Thresholds:
    - **&lt; 55%** → green / Air OK
-   - **55–70%** → yellow / Getting stuffy
+   - **55-70%** → yellow / Getting stuffy
    - **≥ 70%** → red / OPEN THE WINDOW
 3. ESP32 SoftAP serves a live HTML page (and `/json`). No home router required
 
