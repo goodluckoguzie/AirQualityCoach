@@ -374,5 +374,5 @@ We do **not** use `delay(2500)` in `loop()` because that would freeze the web se
 | `CODE_EXPLAINED.md` | This document |
 | `STEP_BY_STEP_KY015.md` | Build / wiring walkthrough |
 | `README.md` | Quick start |
-| `ky015-wiring-diagram.png` | Wiring image |
+| `dht11-gvd-wiring-diagram.png` | Wiring image (G / V / D) |
 | `sketch.yaml` | Forces ESP32 board profile in Arduino IDE 2 |
