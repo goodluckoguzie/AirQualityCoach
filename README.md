@@ -8,6 +8,27 @@ Built for **LaunchPoint 2026 IoT Club Showcase**.
 
 ---
 
+## Phone login (SoftAP hotspot)
+
+You must join the ESP32 hotspot to open the page. Your phone may say "No internet". That is normal.
+
+| Item | Value |
+|------|-------|
+| **Wi-Fi name (SSID / login)** | `AirCoach` |
+| **Password** | `openwindow` |
+| **Phone page URL** | [http://192.168.4.1/](http://192.168.4.1/) |
+| **JSON data URL** | [http://192.168.4.1/json](http://192.168.4.1/json) |
+
+Steps:
+1. On your phone, open Wi-Fi settings
+2. Connect to **AirCoach**
+3. Enter password **openwindow**
+4. Open a browser and go to **http://192.168.4.1/**
+
+These values are set in `air_quality_coach.ino` as `AP_SSID` and `AP_PASS`.
+
+---
+
 ## Wiring (DHT11 module with G / V / D)
 
 ![DHT11 wiring diagram](ky015-wiring-diagram.png)

@@ -155,11 +155,19 @@ T=23.0C  H=48.0%  Air OK
 
 ## Part E: Phone test
 
+### Phone login
+
+| Item | Value |
+|------|-------|
+| Wi-Fi name (SSID / login) | **AirCoach** |
+| Password | **openwindow** |
+| Page URL | **http://192.168.4.1/** |
+
 ### Step 13: Connect phone Wi-Fi
 - Network: **AirCoach**
 - Password: **openwindow**
 
-(Your phone may say “No internet”. That is normal. Stay connected.)
+(Your phone may say "No internet". That is normal. Stay connected.)
 
 ### Step 14: Open the page
 In the phone browser go to:

@@ -12,6 +12,21 @@ This document explains every part of the Air Quality Coach firmware in plain lan
 6. Serves a phone web page at `http://192.168.4.1`
 7. Repeats sensor reads every 2.5 seconds
 
+### Phone login credentials
+
+| Item | Value |
+|------|-------|
+| Wi-Fi name (SSID / login) | `AirCoach` |
+| Password | `openwindow` |
+| Page URL | `http://192.168.4.1/` |
+
+Code location:
+
+```cpp
+const char* AP_SSID = "AirCoach";
+const char* AP_PASS = "openwindow";
+```
+
 ---
 
 ## Big picture (data flow)

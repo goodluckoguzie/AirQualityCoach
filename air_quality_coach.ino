@@ -2,9 +2,10 @@
   Air Quality Coach: Open the Window
   ESP32 + DHT + traffic-light LEDs + SoftAP web page
 
-  Phones connect to Wi-Fi: AirCoach
-  Password:          openwindow
-  Then open:         http://192.168.4.1
+  Phone login:
+    Wi-Fi SSID:  AirCoach
+    Password:    openwindow
+    Page URL:    http://192.168.4.1/
 */
 
 #include <WiFi.h>
