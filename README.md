@@ -1,6 +1,6 @@
 # Air Quality Coach: Open the Window
 
-ESP32 + **KY-015 DHT11** + traffic-light LEDs + SoftAP phone page.
+ESP32 + **DHT11 (G / V / D)** + traffic-light LEDs + SoftAP phone page.
 
 When humidity gets high, the red LED lights and your phone says **OPEN THE WINDOW**.
 
@@ -31,13 +31,23 @@ These values are set in `air_quality_coach.ino` as `AP_SSID` and `AP_PASS`.
 
 ## Wiring (DHT11 module with G / V / D)
 
-![DHT11 wiring diagram](ky015-wiring-diagram.png)
+Your module has **3 pins labeled G, V, D** (not S / + / -).
 
-| Sensor pin | Meaning | ESP32 |
-|------------|---------|-------|
+![DHT11 G V D wiring diagram](dht11-gvd-wiring-diagram.png)
+
+| Sensor pin | Meaning | Connect to ESP32 |
+|------------|---------|------------------|
 | **G** | Ground | **GND** |
-| **V** | Power | **5V** (use 3V3 only if 5V is unavailable) |
+| **V** | Power | **5V** (or 3V3 if needed) |
 | **D** | Data | **GPIO4** |
+
+```text
+DHT11          ESP32
+-----          -----
+G   ---------> GND
+V   ---------> 5V
+D   ---------> GPIO4
+```
 
 | LED | ESP32 GPIO | Resistor |
 |-----|------------|----------|
@@ -45,20 +55,20 @@ These values are set in `air_quality_coach.ino` as `AP_SSID` and `AP_PASS`.
 | Yellow | 26 | 220Ω |
 | Red | 27 | 220Ω |
 
-LED: long leg → resistor side; short leg → GND.
+LED: long leg to resistor side; short leg to GND.
 
 ---
 
 ## Quick start
 
 1. Wire as above (unplug USB first)
-2. Arduino IDE → Board **ESP32 Dev Module** → select Port (`/dev/ttyUSB0`)
+2. Arduino IDE: Board **ESP32 Dev Module**, Port `/dev/ttyUSB0`
 3. Install **DHT sensor library** (Adafruit) + **Adafruit Unified Sensor**
-4. Open `air_quality_coach.ino` → Upload
-5. Serial Monitor at **115200** → should show `SoftAP started`
+4. Open `air_quality_coach.ino` and Upload
+5. Serial Monitor at **115200** should show `SoftAP started`
 6. Phone Wi-Fi: **AirCoach** / **openwindow**
 7. Browser: [http://192.168.4.1](http://192.168.4.1)
-8. Breathe on the DHT11 → yellow/red + "OPEN THE WINDOW"
+8. Breathe on the DHT11: yellow/red + "OPEN THE WINDOW"
 
 Guides:
 - Build walkthrough: [`STEP_BY_STEP_KY015.md`](STEP_BY_STEP_KY015.md)
@@ -70,9 +80,9 @@ Guides:
 
 1. DHT11 reads temperature + humidity every 2.5 seconds
 2. Thresholds:
-   - **&lt; 55%** → green / Air OK
-   - **55-70%** → yellow / Getting stuffy
-   - **≥ 70%** → red / OPEN THE WINDOW
+   - **&lt; 55%** green / Air OK
+   - **55-70%** yellow / Getting stuffy
+   - **≥ 70%** red / OPEN THE WINDOW
 3. ESP32 SoftAP serves a live HTML page (and `/json`). No home router required
 
 ---
@@ -82,8 +92,8 @@ Guides:
 | File | Purpose |
 |------|---------|
 | `air_quality_coach.ino` | ESP32 firmware |
-| `CODE_EXPLAINED.md` | Full explanation of every part of the code |
-| `ky015-wiring-diagram.png` | Wiring diagram |
+| `CODE_EXPLAINED.md` | Full explanation of the code |
+| `dht11-gvd-wiring-diagram.png` | Correct G/V/D wiring diagram |
 | `STEP_BY_STEP_KY015.md` | Detailed build guide |
 | `sketch.yaml` | Arduino IDE 2 ESP32 profile |
 | `README.md` | This file |
@@ -93,7 +103,7 @@ Guides:
 ## Hardware
 
 - ESP32 (Freenove / DevKit)
-- KY-015 DHT11 module
+- DHT11 module with pins **G V D**
 - 3 LEDs + 220Ω resistors
 - Breadboard + jumper wires
 
