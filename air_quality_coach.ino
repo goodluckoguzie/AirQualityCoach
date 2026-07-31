@@ -12,8 +12,9 @@
 #include <DHT.h>
 
 // ---------- PINS (change if your wiring differs) ----------
+// DHT11 module pins: G=GND, V=5V (or 3V3), D=DATA -> GPIO below
 #define DHTPIN   4
-#define DHTTYPE  DHT11   // KY-015 module = DHT11 (do not set DHT22)
+#define DHTTYPE  DHT11   // blue DHT11 module (not DHT22)
 
 #define LED_GREEN  25
 #define LED_YELLOW 26
@@ -37,7 +38,7 @@ String advice = "Warming up sensor";
 int level = 0;  // 0=ok, 1=stuffy, 2=open window
 
 unsigned long lastReadMs = 0;
-const unsigned long READ_EVERY_MS = 2000;
+const unsigned long READ_EVERY_MS = 2500;  // DHT11 needs >= 2s between reads
 
 void setLights(int lvl) {
   digitalWrite(LED_GREEN,  lvl == 0 ? HIGH : LOW);
@@ -151,6 +152,8 @@ void setup() {
   pinMode(LED_RED, OUTPUT);
   setLights(1);
 
+  // Help flaky DHT11 modules on ESP32
+  pinMode(DHTPIN, INPUT_PULLUP);
   dht.begin();
 
   WiFi.mode(WIFI_AP);
@@ -160,12 +163,15 @@ void setup() {
   Serial.println(AP_SSID);
   Serial.print("IP:   ");
   Serial.println(WiFi.softAPIP());
+  Serial.print("DHT pin GPIO");
+  Serial.println(DHTPIN);
+  Serial.println("Wiring: G->GND, V->5V, D->GPIO4");
 
   server.on("/", handleRoot);
   server.on("/json", handleJson);
   server.begin();
 
-  delay(1500);  // DHT warm-up
+  delay(2500);  // DHT11 warm-up
   updateFromSensor();
 }
 

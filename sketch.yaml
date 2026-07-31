@@ -1,0 +1,10 @@
+profiles:
+  esp32:
+    fqbn: esp32:esp32:esp32
+    platforms:
+      - platform: esp32:esp32 (3.3.11)
+    libraries:
+      - DHT sensor library (1.4.7)
+      - Adafruit Unified Sensor (1.1.15)
+default_profile: esp32
+default_fqbn: esp32:esp32:esp32
